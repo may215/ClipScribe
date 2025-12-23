@@ -1,26 +1,99 @@
-# ClipScribe (Android)
+# 🎧 ClipScribe (Android)
 
-Create short clips from shared YouTube links (timestamps), edit range, and view a synchronized transcript.
-RTL Hebrew-first UI and dark theme.
+**ClipScribe** היא אפליקציית Android בקוד פתוח שמאפשרת ליצור **קליפים קצרים מתוך סרטוני YouTube** (על בסיס timestamp), לערוך את טווח הקליפ, ולהציג **תמלול מסונכרן בסגנון אפליקציית אודיו** — עם timestamps, הדגשה בזמן ניגון, גלילה אוטומטית וייצוא.
 
-⚠️ This app does NOT download YouTube audio/video. Transcript providers must use legal/authorized sources.
+האפליקציה תוכננה להיות:
+- מהירה לשימוש (Share → תוצאה)
+- קריאה ונוחה (RTL מלא, עברית-first)
+- בטוחה וחוקית (ללא הורדת מדיה מיוטיוב)
 
-## Features
-- Share YouTube link → opens clip screen automatically
-- Default clip length toggle: 30s / 1m / 2m / 5m
-- Range editor (Start/End)
-- Embedded YouTube player (starts at Start, pauses at End)
-- Transcript with timestamps, highlight, auto-scroll, seek-on-tap
-- Save to Library (Room)
-- Export transcript: Markdown + PDF
-- Copy / Share transcript
+---
 
-## Build
-Requirements: Android Studio, JDK 17
+## 🎯 מוטיבציה
 
-```bash
+הרבה פעמים אנחנו רוצים:
+- לשמור **קטע קצר** מתוך הרצאה, שיעור, פודקאסט או ראיון ביוטיוב
+- לחזור לקטע מסוים שוב ושוב
+- להוציא ממנו **טקסט מסודר** (סיכום, ציטוט, לימוד, תיעוד)
+
+אבל:
+- YouTube לא בנוי לעבודה עם קליפים קצרים אישיים
+- תמלולים לא תמיד נוחים לקריאה
+- אין חוויית “אודיו + טקסט מסונכרן” לקליפים קצרים
+
+**ClipScribe נוצרה כדי לפתור את זה.**
+
+---
+
+## ✨ מה האפליקציה עושה
+
+1. 📤 משתפים קישור YouTube (כולל timestamp)
+2. 📍 האפליקציה נפתחת ישירות על הקטע הרלוונטי
+3. ⏱️ נוצר קליפ ברירת מחדל (30s / 1m / 2m / 5m)
+4. ✂️ ניתן לערוך Start / End עם Slider
+5. ▶️ ניגון מתחיל ב-Start ועוצר אוטומטית ב-End
+6. 📝 תמלול מוצג עם timestamps + highlight + auto-scroll
+7. 💾 שמירה לספרייה מקומית
+8. 📄 ייצוא התמלול (Markdown / PDF)
+
+---
+
+## 🚀 פיצ’רים עיקריים
+
+- Share & Open מ-YouTube
+- עריכת קליפ עם RangeSlider
+- Toggle אורך ברירת מחדל
+- נגן YouTube משולב
+- תמלול עם timestamps + highlight
+- LazyColumn עם auto-scroll חכם
+- Room DB + ספרייה
+- Export: Markdown / PDF
+- RTL מלא + עברית
+
+---
+
+## 🧱 מבנה הפרויקט
+
+app/
+ ├─ ui/
+ │   ├─ clip/
+ │   ├─ library/
+ │   └─ theme/
+ ├─ nav/
+ ├─ data/
+ │   ├─ db/
+ │   └─ repo/
+ ├─ transcript/
+ ├─ export/
+ └─ util/
+
+---
+
+## 🛠️ טכנולוגיות
+
+- Kotlin
+- Jetpack Compose
+- Material 3
+- Navigation Compose
+- Room + KSP
+- Coroutines
+- android-youtube-player
+
+---
+
+## ▶️ Build
+
 ./gradlew assembleDebug
-```
 
-## Notes
-- Transcript in this repo uses a demo provider (placeholder).
+---
+
+## ⚠️ הערה חשובה על תמלול
+
+האפליקציה **לא מורידה אודיו או וידאו מיוטיוב**.  
+קיים DemoTranscriptProvider לצורכי פיתוח בלבד.
+
+---
+
+## 📜 רישיון
+
+MIT License
